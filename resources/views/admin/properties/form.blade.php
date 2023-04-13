@@ -4,5 +4,17 @@
 @section('content')
     
 <h1>@yield('title')</h1>
-
+<form action="{{route($property->exist ? 'admin.property.update ' : 'admin.property.store', $property) }}" method="POST">
+@csrf
+@method($property->exist ? 'put': 'post')
+<div>
+    <button class="btn btn-primary">
+        @if($property->exist)
+            Modify
+        @else 
+            Create
+        @endif
+    </button>
+</div>
+</form>
 @endsection

@@ -1,10 +1,11 @@
 @extends('admin.admin')
 
 @section('title', 'All the Properties')
+
 @section('content')
 <div class="d-flex justify-content-between align-item-center">
     <h1>@yield('title')</h1>
-    <a href="{{route('admin.property.create')}}" class="btn btn-primary">Add a proprety</a>
+    <a href="{{ route('admin.property.create') }}" class="btn btn-primary">Add a property</a>
 </div>
 
 

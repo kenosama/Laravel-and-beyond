@@ -45,6 +45,7 @@ class PropertyController extends Controller
     public function store (PropertyFormRequest $request)
     {
         $property = Property::create($request->validated());
+        $property->options()->sync($request->validated('options'));
         return to_route('admin.property.index')->with('success','The Property has been Created.');
     }
 
@@ -65,6 +66,8 @@ class PropertyController extends Controller
      */
     public function update(PropertyFormRequest $request, Property $property)
     {
+        
+        $property->options()->sync($request->validated('options'));
         $property->update($request->validated());
         return to_route('admin.property.index')->with('success', 'The Property has been Modified.');
     }

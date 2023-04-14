@@ -43,7 +43,7 @@ class PropertyController extends Controller
     public function store (PropertyFormRequest $request)
     {
         $property = Property::create($request->validated());
-        return to_route('admin.property.index')->with('succes','The Property has been Created.');
+        return to_route('admin.property.index')->with('success','The Property has been Created.');
     }
 
 

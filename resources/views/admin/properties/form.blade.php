@@ -18,6 +18,13 @@
 @include('shared.input', ['type'=>'textarea', 'name'=>'description', 'value'=>$property->description])
 <div class="row">
     @include('shared.input', ['class'=>'col', 'name'=>'rooms', 'value'=>$property->rooms])
+    @include('shared.input', ['class'=>'col', 'name'=>'bedrooms', 'value'=>$property->bedrooms])
+    @include('shared.input', ['class'=>'col', 'name'=>'floor', 'value'=>$property->floor])
+</div>
+<div class="row">
+    @include('shared.input', ['class'=>'col', 'name'=>'address', 'value'=>$property->address])
+    @include('shared.input', ['class'=>'col', 'name'=>'city', 'value'=>$property->city])
+    @include('shared.input', ['class'=>'col','label'=>'Postal Code' ,'name'=>'postal_code', 'value'=>$property->postal_code])
 </div>
 
 <div>

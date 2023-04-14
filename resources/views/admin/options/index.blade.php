@@ -12,10 +12,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Title</th>
-            <th>Surface</th>
-            <th>Price</th>
-            <th>City</th>
+            <th>Name</th>
             <th class="text-end">Actions</th>
         </tr>
     </thead>

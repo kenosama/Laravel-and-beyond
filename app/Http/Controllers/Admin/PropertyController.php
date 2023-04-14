@@ -21,9 +21,19 @@ class PropertyController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    {   $property=new Property();
+        $property->fill([
+            'surface'=>10,
+            'rooms'=>3,
+            'bedrooms'=>1,
+            'floor'=>0,
+            'city'=>'ghent',
+            'postal_code'=>'9000',
+            'sold'=>false,
+        ]);
+
         return view('admin.properties.form', [
-            'property'=>new Property()
+            'property'=>$property
         ]);
     }
 
@@ -32,7 +42,8 @@ class PropertyController extends Controller
      */
     public function store (PropertyFormRequest $request)
     {
-        //
+        $property = Property::create($request->validated());
+        return to_route('admin.property.index')->with('succes','The Property has been Created.');
     }
 
 

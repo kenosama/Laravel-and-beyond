@@ -1,12 +1,14 @@
 @extends('admin.admin')
-@section('title', $property->exist ? "Edit a Property | Administration" : "Create a Property | Administration")
+@section('title', $property->exists ? "Edit a Property | Administration" : "Create a Property | Administration")
 
 @section('content')
     
 <h1>@yield('title')</h1>
-<form class="vstack gap-2" action="{{route($property->exist ? 'admin.property.update ' : 'admin.property.store', $property) }}" method="POST">
-@csrf
-@method($property->exist ? 'put': 'post')
+
+    <form class="vstack gap-2" action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}" method="post">
+
+        @csrf
+        @method($property->exists ? 'put' : 'post')
 
     <div class="row">
         @include('shared.input', ['class'=>'col', 'label'=>'Title', 'name'=>'title', 'value'=>$property->title])
@@ -30,7 +32,7 @@
 
 <div>
     <button class="btn btn-primary">
-        @if($property->exist)
+        @if($property->exists)
             Modify
         @else 
             Create

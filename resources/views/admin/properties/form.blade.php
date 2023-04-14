@@ -8,6 +8,7 @@
     <form class="vstack gap-2" action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}" method="post">
 
         @csrf
+        {{-- if you don't specify the method here, then the update will never work. --}}
         @method($property->exists ? 'put' : 'post')
 
     <div class="row">

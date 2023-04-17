@@ -17,12 +17,15 @@
 
 <div class="container">
     <div class="row">
-        @foreach ($properties as $property)
+        @forelse ($properties as $property)
             <div class="col-3 mb-4">
                 @include('property.card')
             </div>
-                
-            @endforeach
+        @empty
+        <div class="col alert alert-danger">
+                No Properties correspond with your criteria.
+            </div>
+        @endforelse
     </div>
     <div class="my-4">
     {{$properties->links()}}

@@ -3,19 +3,30 @@
 
 @section('content')
 
+<div class="bg-light p-5 mb-5 text-center">
+    <form action="" method="get" class="container d-flex gap-2">
+        <input type="number" placeholder="Surface minimum" class="form-control" name="surface" value="{{ $input['surface'] ?? '' }}">
+        <input type="number" placeholder="Number of rooms Minimum" class="form-control" name="rooms" value="{{ $input['rooms'] ?? '' }}">
+        <input type="number" placeholder="Budget max" class="form-control" name="price" value="{{ $input['price'] ?? '' }}">
+        <input placeholder="Keyword" class="form-control" name="title" value="{{ $input['title'] ?? '' }}">
+        <button class="btn btn-primary btn-sm flex-grow-0">
+            Rechercher
+        </button>
+    </form>
+</div>
+
 <div class="container">
     <div class="row">
         @foreach ($properties as $property)
-            <div class="col-3">
+            <div class="col-3 mb-4">
                 @include('property.card')
             </div>
                 
             @endforeach
     </div>
-</div>
-
-<div class="my-4">
+    <div class="my-4">
     {{$properties->links()}}
+</div>
 </div>
     
 @endsection

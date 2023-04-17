@@ -28,6 +28,16 @@ class PropertyController extends Controller
         ]);
     }
     public function show(string $slug, Property $property){
+        $expectedSlug= $property->getSlug();
         
+        if($slug !== $expectedSlug){
+            return to_route('property.show', [
+                'slug'=>$expectedSlug,
+            ]);
+        }
+
+        return view('property.show', [
+            'property'=>$property
+        ])
     }
 }

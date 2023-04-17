@@ -38,6 +38,6 @@ class PropertyController extends Controller
 
         return view('property.show', [
             'property'=>$property
-        ])
+        ]);
     }
 }

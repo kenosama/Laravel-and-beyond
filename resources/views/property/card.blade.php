@@ -9,6 +9,6 @@
             {{$property->surface}}m2 - {{$property->city}} - ({{$property->postal_code}})
         </p>
         <div class="text-primary fw-bold" style="font-size: 1.4rem;">
-        {{number_format($property->price, thousand_separator: ' ') }}€</div>
+        {{number_format($property->price, thousands_separator: ' ') }}€</div>
     </div>
 </div>

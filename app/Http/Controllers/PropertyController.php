@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class PropertyController extends Controller
 {
     public function index(){
-        
+        $properties = Property::paginate(2);
+        return view('property.index', [
+            'properties'=>$properties
+        ]);
     }
     public function show(string $slug, Property $property){
         

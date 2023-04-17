@@ -36,11 +36,18 @@
 
 <div class="mt-4">
     <h2>Description</h2>
-    <p>{{nl2br($property->description)}}</p>
+    <p>{!! nl2br(e($property->description)) !!}</p> 
     <div class="row">
         <div class="col-8">
             <h2>Caracteristics</h2>
             <table class="table table-striped">
+                <tr>
+                    <td>Localisation</td>
+                    <td>
+                        {{$property->address}} <br/>
+                        {{$property->city}}  ({{$property->postal_code}})
+                    </td>
+                </tr>
                 <tr>
                     <td>Living Surface</td>
                     <td>{{$property->surface}}m2</td>

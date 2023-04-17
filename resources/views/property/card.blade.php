@@ -13,5 +13,11 @@
         </p>
         <div class="text-primary fw-bold" style="font-size: 1.4rem;">
         {{number_format($property->price, thousands_separator: ' ') }}€</div>
+
+        @if($property->sold)
+        <div class="alert alert-danger mt-2">
+            Already sold by <span class="fw-bold">The Agency</span>
+        </div>
+        @endif
     </div>
 </div>

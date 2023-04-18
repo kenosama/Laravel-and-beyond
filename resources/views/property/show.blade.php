@@ -17,7 +17,7 @@
 
 <div class="mt-4">
     <h4>Interessted? </h4>
-    <form action="{{route('property.contact', $property)}}" method="post" class="vstack gap-3">
+     <form action="{{ route('property.contact', $property) }}" method="post" class="vstack gap-3">
         @csrf
         <div class="row">
             @include('shared.input', ['class'=>'col', 'name'=>'firstname', 'label'=>'First Name:', 'value'=>'John'])
@@ -28,9 +28,9 @@
             @include('shared.input', ['type'=>'email','class'=>'col', 'name'=>'email', 'label'=>'Email:', 'value'=>'john@doepublic.be'])
         </div>
         @include('shared.input', ['type'=>'textarea','class'=>'col', 'name'=>'message', 'label'=>'Your message:', 'value'=>'My Little message for the Agency'])
-        <div class="btn btn-primary">
+        <button class="btn btn-primary">
             Contact us
-        </div>
+        </button>
     </form>
 </div>
 

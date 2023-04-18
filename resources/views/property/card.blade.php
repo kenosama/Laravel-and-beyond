@@ -1,8 +1,8 @@
 <div class="card">
-    <div class="position-relative">
+    <div class="position-relative w-100">
     @if($property->getPicture())
         
-        <img src="{{$property->getPicture()->getImageUrl()}}" alt="" class="w-100">
+        <img src="{{$property->getPicture()->getImageUrl(360, 230, 'crop')}}" alt="" class="w-100">
     @else
         <img src="/empty.jpg" alt="">
     @endif

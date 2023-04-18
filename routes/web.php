@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +27,9 @@ Route::post('/Properties/{property}/contact', [App\Http\Controllers\PropertyCont
     'property' => $idRegex,
 ]);
 
+Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->name('login');
+Route::post('/login', [AuthController::class, 'dologin']);
+Route::delete('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){

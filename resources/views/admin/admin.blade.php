@@ -12,6 +12,13 @@
 
 
     <title>@yield('title') | Administration</title>
+    <style>
+        @layer reset{
+            button{
+                all:unset;
+            }
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
@@ -32,6 +39,20 @@
                     <a href="{{ route('admin.option.index') }}"  @class(['nav-link', 'active' => str_contains($route, 'option.')])>Options Management</a>
                 </li>
             </ul>
+            <div class="ms-auto">
+                 @auth
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <form action="{{route('logout')}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <button class="nav-link">Disconnect</button>
+                    </form>
+                </li>
+            </ul>
+            @endauth
+            </div>
+           
         </div>
     </div>
 </nav>

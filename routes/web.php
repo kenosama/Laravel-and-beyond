@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\PictureController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,8 @@ Route::post('/Properties/{property}/contact', [App\Http\Controllers\PropertyCont
 Route::get('/login', [AuthController::class, 'login'])->middleware('guest')->name('login');
 Route::post('/login', [AuthController::class, 'dologin']);
 Route::delete('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
+
+Route::get('/images/{path}', [ImageController::class, 'show'])->where('path','.*');
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function() use ($idRegex){
     Route::resource('property', App\Http\Controllers\Admin\PropertyController::class)->except(['show']);

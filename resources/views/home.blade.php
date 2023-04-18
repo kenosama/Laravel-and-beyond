@@ -1,6 +1,9 @@
 @extends('base')
 
 @section('content')
+@php
+        $route = request()->route()->getName();
+@endphp
 
 <div class="bg-light p-5 mb-5 text-center">
     <div class="container">
@@ -25,10 +28,18 @@ Whether you're a first-time buyer or a seasoned investor, we're here to help you
             <div class="col">
                 @include('property.card')
             </div>
-                
             @endforeach
+
+            <a href="{{ route('property.index') }}" @class(['nav-link', 'active' => str_contains($route, 'property.')])>
+                <button class="btn btn-primary mt-5" type="button" disabled>
+  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  <span class="">Discover your new home from our Properties</span>
+</button>
+
+            </a>
         </div>
     </div>
+    
 </div>
    
 @endsection

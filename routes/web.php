@@ -24,6 +24,10 @@ Route::get('/Properties/{slug}-{property}', [App\Http\Controllers\PropertyContro
     'property' => $idRegex,
 ]);
 
+Route::post('/Properties/{property}/contact', [App\Http\Controllers\PropertyController::class, 'contact'])->name('property.contact')->where([
+    'property' => $idRegex,
+]);
+
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::resource('property', App\Http\Controllers\Admin\PropertyController::class)->except(['show']);
     Route::resource('option', App\Http\Controllers\Admin\OptionController::class)->except(['show']);

@@ -31,11 +31,9 @@ Whether you're a first-time buyer or a seasoned investor, we're here to help you
             @endforeach
 
             <a href="{{ route('property.index') }}" @class(['nav-link', 'active' => str_contains($route, 'property.')])>
-                <button class="btn btn-primary mt-5" type="button" disabled>
-  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-  <span class="">Discover your new home from our Properties</span>
+                <button class="btn btn-primary animate__animated animate__shake mt-5" type="button" disabled>
+  Discover your new home from our Properties
 </button>
-
             </a>
         </div>
     </div>

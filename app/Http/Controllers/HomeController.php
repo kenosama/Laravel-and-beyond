@@ -9,6 +9,8 @@ class HomeController extends Controller
 {
     public function index(){
         $properties= Property::with('pictures')->recent()->limit(4)->get();
+        
+
         return view('home', ['properties'=>$properties]);
     }
 }

@@ -9,6 +9,7 @@
     {{-- TOM SELECT IS HERE  --}}
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+<script src="https://unpkg.com/htmx.org@1.9.0"></script>
 
 
     <title>@yield('title') | Administration</title>
@@ -17,6 +18,15 @@
             button{
                 all:unset;
             }
+        }
+        .htmx-indicator{
+            display:none;
+        }
+        .htmx-request .htmx-indicator{
+            display: inline-block;
+        }
+        .htmx-request.htmx-indicator{
+            display: inline-block;
         }
     </style>
 </head>

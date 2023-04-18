@@ -5,13 +5,15 @@
     
 <h1>@yield('title')</h1>
 
-    <form class="vstack gap-2" action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}" method="post">
+    <form class="vstack gap-2" action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}" method="post" enctype="multipart/form-data">
 
         @csrf
         {{-- if you don't specify the method here, then the update will never work. --}}
         @method($property->exists ? 'put' : 'post')
 
     <div class="row">
+        <div class="col vstack gap-2" style="flex: 100">
+            <div class="row">
         @include('shared.input', ['class'=>'col', 'label'=>'Title', 'name'=>'title', 'value'=>$property->title])
         <div class="col row">
             @include('shared.input', ['class'=>'col', 'name'=>'surface', 'value'=>$property->surface])
@@ -34,6 +36,26 @@
     
 
 
+        </div>
+        <div class="col vstack gap-3" style="flex: 25">
+
+            @foreach ($property->pictures as $picture)
+                
+                <div id="picture{{$picture->id}}" class="position-relative">
+                <img src="{{$picture->getImageUrl()}}" alt="" class="w-100 d-block">
+                <button type="button" class="btn btn-danger position-absolute bottom-0 w-100 start-0"
+                    hx-delete="{{route('admin.picture.destroy', $picture)}}"
+                    hx-target="#picture{{$picture->id}}"
+                    hx-swap="delete"
+                >
+                <span class="htmx-indicator spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Delete Image</button>
+                </div>
+            @endforeach
+
+            @include('shared.upload', ['name' => 'pictures', 'label' => 'Pictures:', 'multiple' => true])
+        </div>
+    </div>
 <div>
     <button class="btn btn-primary">
         @if($property->exists)

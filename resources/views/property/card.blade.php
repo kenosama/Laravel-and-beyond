@@ -2,12 +2,12 @@
     <div class="position-relative w-100">
     @if($property->getPicture())
         
-        <img src="{{$property->getPicture()->getImageUrl(360, 230, 'crop')}}" alt="" class="w-100">
+        <img src="{{ $property->getPicture()->getImageUrl(360, 230) }}" alt="" class="w-100">
     @else
-        <img src="/empty.jpg" alt="">
+        <img src="/empty.jpg" class="w-100" alt="">
     @endif
             @if($property->sold)
-        <div class="alert alert-danger mt-2 position-absolute bottom-0 w-100 start-0">
+        <div class="alert alert-danger position-absolute bottom-0 w-100 start-0">
             Already sold by <span class="fw-bold">The Agency</span>
         </div>
         @endif

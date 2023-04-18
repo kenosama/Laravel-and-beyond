@@ -19,7 +19,7 @@ Whether you're a first-time buyer or a seasoned investor, we're here to help you
     </div>
 
     <div class="container">
-        <h2>Our Last Properties</h2>
+        <h2 class="mb-5">Our Last Properties</h2>
         <div class="row">
             @foreach ($properties as $property)
             <div class="col">

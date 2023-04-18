@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -62,5 +63,9 @@ class Property extends Model
     public function getPicture(): ?Picture
     {
         return $this->pictures[0] ?? null;
+    }
+
+    public function scopeRecent(Builder $builder):Builder{
+        return $builder->orderBy('created_at', 'desc');
     }
 }

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 class PropertyController extends Controller
 {
     public function index(SearchPropertiesRequest $request){
-        $query = Property::query()->with('pictures')->orderBy('created_at', 'desc');
+        $query = Property::query()->with('pictures')->recent();
         if ($price = $request->validated('price')) {
             $query = $query->where('price', '<=', $price);
         }

@@ -1,4 +1,8 @@
 <div class="card">
+<a href="{{route('property.show', [
+                'slug' => $property->getSlug(),
+                'property'=>$property
+                ])}}">
     <div class="position-relative w-100">
     @if($property->getPicture())
         
@@ -14,12 +18,9 @@
     </div>
     <div class="card-body">
         <h5 class="card-title">
-            <a href="{{route('property.show', [
-                'slug' => $property->getSlug(),
-                'property'=>$property
-                ])}}">
+            
             {{$property->title}} 
-            </a>
+</a>
         </h5>
         <p class="card-text">
             {{$property->surface}}m2 - {{$property->city}} - ({{$property->postal_code}})

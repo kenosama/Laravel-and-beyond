@@ -16,7 +16,11 @@
 <hr>
 
 <div class="mt-4">
-    <h4>Interessted? </h4>
+    @include('shared.flash')
+
+    @if(session('success'))
+    @else
+       <h4>Interessted? </h4>
      <form action="{{ route('property.contact', $property) }}" method="post" class="vstack gap-3">
         @csrf
         <div class="row">
@@ -31,7 +35,9 @@
         <button class="btn btn-primary">
             Contact us
         </button>
-    </form>
+    </form> 
+    @endif
+    
 </div>
 
 <div class="mt-4">

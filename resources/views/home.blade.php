@@ -1,5 +1,5 @@
 @extends('base')
-
+@section('title','Welcome')
 @section('content')
 @php
         $route = request()->route()->getName();

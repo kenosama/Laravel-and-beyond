@@ -15,9 +15,21 @@ class PropertyFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {
+    {   
+        $rooms= $this->faker->numberBetween(1, 10);
         return [
-            //
+            'title'=>$this->faker->sentence(6, true),
+            'description'=>$this->faker->sentences(4, true),
+            'surface'=>$this->faker->numberBetween(20, 350),
+            'rooms'=>$rooms,
+            'bedrooms'=>$this->faker->numberBetween(1, $rooms-1),
+            'floor'=>$this->faker->numberBetween(0, 15),
+            'price'=>$this->faker->numberBetween(100000, 1000000),
+            'city'=>$this->faker->city,
+            'address'=>$this->faker->address,
+            'postal_code'=>$this->faker->postcode,
+            'sold'=>false,
+
         ];
     }
 }
